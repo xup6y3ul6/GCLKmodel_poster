@@ -1,0 +1,84 @@
+body {
+  font-family: "Segoe UI", "Microsoft JhengHei";
+  font-size: 12px;
+}
+
+#title{
+  font-size: 150%;
+}
+
+h1 {
+  font-size: 120%;
+  /*color: #001E44;*/
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 125%;
+  /*color: #065A82;*/
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 120%;
+  /*color: #1C7293;*/
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 125%;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 120%;
+  font-weight: bold;
+}
+
+h6 {
+  font-size: 110%;
+  font-weight: bold;
+}
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: "Fira Code";
+}
+
+blockquote {
+  font-size: 20px;
+  color: #f78e69;
+  font-weight: bold;
+  background-color: #ededed;
+  border-left: 5px solid #f78e69;
+}
+
+p {
+  text-indent: 0.5in;
+}
+
+.indent{
+  text-indent: 0.5in;
+}
+
+.MathJax {
+  font-size: 12px;
+}
+
+.caption{
+  font-weight: bold;
+  color: grey;
+}
+
+div.theorem, div.lemma, div.corollary, div.proposition, div.conjecture, div.definition p{
+  font-style: italic;
+  text-indent: 0em;
+}
+
+span.theorem, span.lemma, span.corollary, span.proposition, span.conjecture, span.definition{
+  font-style: normal;
+}
+
+div.references p{
+  text-indent: 0em;
+}
