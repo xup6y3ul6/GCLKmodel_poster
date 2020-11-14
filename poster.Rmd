@@ -20,8 +20,8 @@ output:
     number_sections: false
     css: style.css
 link-citations: true
-bibliography: bibliography.bib
-csl: apa7.csl
+bibliography: bibliography/bibliography.bib
+csl: bibliography/apa7.csl
 poster_height: "82cm"
 poster_width: "115cm"
 main_textsize: "142pt"

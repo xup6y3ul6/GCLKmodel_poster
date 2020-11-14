@@ -1,5 +1,5 @@
 ---
-title: "Hierarchical Bayesian Model"
+title: "General Condorcet Luce Krantz Model"
 author: "心理所碩二 R08227116 林子堯"
 date: "2020/11/18"
 output: html_document
@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Hierarchical Bayesian Model of GCLK
+# Hierarchical Bayesian Model
 
 **Likelihood**
 $$\begin{align*}
@@ -42,8 +42,17 @@ p_T &\sim Uniform(0, 1) \\
 \boldsymbol{\alpha_g} &= (1,\dots,1,0)^{\top} \\
 \end{align*}$$
 
-where $i = 1, \dots, N$, $k = 1, \dots, M$, $j = 1, ..., J$, and the $J\times 1$ column vector (e.g. $\mathbf{ p_{X_{ik}}}, \mathbf{d_i}, \mathbf{g_i}, \boldsymbol{\alpha_d}, \boldsymbol{\alpha_g}, \mathbf{1}$) are denoted by bold symbol.
+where $i = 1, \dots, N$, $k = 1, \dots, M$, $j = 1, ..., J$, and the $J \times 1$ column vector (e.g. $\mathbf{ p_{X_{ik}}}, \mathbf{d_i}, \mathbf{g_i}, \boldsymbol{\alpha_d}, \boldsymbol{\alpha_g}, \mathbf{1}$) are denoted by bold symbol.
 
 **Constraint**
 
+1. $g_j, d_j \geq 0$ and $\sum_{j=1}^J g_j = \sum_{j=1}^J d_j = 1$
+2. $\frac{d_1}{g_1} \leq \dots \leq \frac{d_J}{g_J}$
+3. $d_1 = g_J = 0$
+4. $Q_{med} = Median\{Q_1, \dots, Q_M\} = 0.5$
 
+Any point estimate $\eta in \{Q_1, \dots, Q_M, E_1, \dots, E_N \}$ is center around $Q_{med}$ by:
+
+$$
+\eta^* =\frac{\eta(1 + \frac{0.5 - Q_{med}}{Q_{med} - 0.5Q_{med}})}{1 + \eta(\frac{0.5 - Q_{med}}{Q_{med} - 0.5Q_{med}})}
+$$

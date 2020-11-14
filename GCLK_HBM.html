@@ -444,7 +444,18 @@ p_T &amp;\sim Uniform(0, 1) \\
 \boldsymbol{\alpha_d} &amp;= (0,1,\dots,1)^{\top} \\
 \boldsymbol{\alpha_g} &amp;= (1,\dots,1,0)^{\top} \\
 \end{align*}\]</span></p>
-<p>where <span class="math inline">\(i = 1, \dots, N\)</span>, <span class="math inline">\(k = 1, \dots, M\)</span>, <span class="math inline">\(j = 1, ..., J\)</span>, and the <span class="math inline">\(J\times 1\)</span> column vector (e.g. <span class="math inline">\(\mathbf{ p_{X_{ik}}}, \mathbf{d_i}, \mathbf{g_i}, \boldsymbol{\alpha_d}, \boldsymbol{\alpha_g}, \mathbf{1}\)</span>) are denoted by bold symbol.</p>
+<p>where <span class="math inline">\(i = 1, \dots, N\)</span>, <span class="math inline">\(k = 1, \dots, M\)</span>, <span class="math inline">\(j = 1, ..., J\)</span>, and the <span class="math inline">\(J \times 1\)</span> column vector (e.g. <span class="math inline">\(\mathbf{ p_{X_{ik}}}, \mathbf{d_i}, \mathbf{g_i}, \boldsymbol{\alpha_d}, \boldsymbol{\alpha_g}, \mathbf{1}\)</span>) are denoted by bold symbol.</p>
+<p><strong>Constraint</strong></p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(g_j, d_j \geq 0\)</span> and <span class="math inline">\(\sum_{j=1}^J g_j = \sum_{j=1}^J d_j = 1\)</span></li>
+<li><span class="math inline">\(\frac{d_1}{g_1} \leq \dots \leq \frac{d_J}{g_J}\)</span></li>
+<li><span class="math inline">\(d_1 = g_J = 0\)</span></li>
+<li><span class="math inline">\(Q_{med} = Median\{Q_1, \dots, Q_M\} = 0.5\)</span></li>
+</ol>
+<p>Any point estimate <span class="math inline">\(\eta in \{Q_1, \dots, Q_M, E_1, \dots, E_N \}\)</span> is center around <span class="math inline">\(Q_{med}\)</span> by:</p>
+<p><span class="math display">\[
+\eta^* =\frac{\eta(1 + \frac{0.5 - Q_{med}}{Q_{med} - 0.5Q_{med}})}{1 + \eta(\frac{0.5 - Q_{med}}{Q_{med} - 0.5Q_{med}})}
+\]</span></p>
 </div>
 
 
