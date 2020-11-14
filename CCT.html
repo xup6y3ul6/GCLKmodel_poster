@@ -36,7 +36,7 @@ Here are the required style attributes for css to make this poster work :)
 -->
 <style>
 @page {
-size: 46in 32in;
+size: 115cm 82cm;
 margin: 0;
 padding: 0;
 background-color: #ffffff;
@@ -44,10 +44,10 @@ background-color: #ffffff;
 body {
 margin: 0px;
 padding: 0px;
-width: 46in;
-height: 32in;
+width: 115cm;
+height: 82cm;
 text-align: justify;
-font-size: 45px;
+font-size: 30pt;
 background-color: #FFFFFF;
 color: #000000;
 }
@@ -126,7 +126,7 @@ font-style: italic;
 padding-top: 0;
 }
 .references {
-font-size: 20px;
+font-size: 20pt;
 line-height: 90%;
 }
 /* Create three unequal columns that floats next to each other */
@@ -135,8 +135,8 @@ float: left;
 padding: 0px;
 }
 .outer {
-width: 46in;
-height: 32in;
+width: 115cm;
+height: 82cm;
 -webkit-column-count: 2; /* Chrome, Safari, Opera */
 -moz-column-count: 2; /* Firefox */
 column-count: 2;
@@ -166,7 +166,7 @@ text-decoration: none;
 color: #008080;
 }
 #title {
-font-size: 125pt;
+font-size: 60pt;
 text-align: left;
 margin: 0;
 line-height: 90%;
@@ -183,11 +183,11 @@ font-size: 1.17em;
 padding-top: 1em;
 color: #00000060;
 font-style: italic;
-font-size: 25px;
+font-size: 25pt;
 margin: 0;
 }
 sup {
-color: #cc0000;
+color: #ff5d41;
 }
 .affiliation sup {
 font-size: 20px;
@@ -199,7 +199,7 @@ font-size: 30px;
 color: #008080;
 margin: 0;
 line-height: 85%;
-font-size: 35px;
+font-size: 30pt;
 }
 .outer h1 {
 text-align: center;
@@ -216,10 +216,10 @@ color: #000000;
 text-align: left;
 }
 .main {
-width: calc(46in * 0.5);
-height: 32in;
+width: calc(115cm * 0.5);
+height: 82cm;
 position: absolute;
-margin-left: calc(46in * 0.25);
+margin-left: calc(115cm * 0.25);
 background-color: #0b4545;
 color: #FFFFFF90;
 font-family: Special Elite;
@@ -242,7 +242,7 @@ position: absolute;
 }
 .main p {
 padding-top: 20%;
-font-size: 170px;
+font-size: 142pt;
 text-align: left;
 }
 .fab {
@@ -280,8 +280,8 @@ font-size: 35px;
 text-decoration: none;
 }
 .poster_wrap {
-width: 46in;
-height: 32in;
+width: 115cm;
+height: 82cm;
 padding: 0cm;
 background-color: #ffffff;
 }
@@ -322,7 +322,7 @@ span > #tab:mytable {
 
 <h5 id="author_extra" class="author_extra">
 Tzu-Yao Lin<sup>1</sup>
- Yung-Fong Hsu<sup>1</sup>
+ Yung-Fong Hsu<img src="figures/NTU.png" class="affil_logo" /><sup>1</sup>
 </h5>
 
 <p id="affiliation" class="affiliation">
@@ -332,259 +332,78 @@ Tzu-Yao Lin<sup>1</sup>
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>Cultural consensus theory (CCT), developed by Batchelder and colleagues in the mid-1980s, is a cognitively-driven information-pooling approach to assess informants’ consensus when the culturally correct answers are unknown a priori to a researcher <span class="citation">(Batchelder &amp; Romney, <a href="#ref-Batchelder1988" role="doc-biblioref">1988</a>)</span>. The goal of CCT is to uncover the cultural knowledge, preference, or beliefs shared by members of a group. The CCT methodology originally aims at analyzing data consisting of binary (true/false or yes/no) responses to interview questions within a culturally-related context. Later work by Batchelder and colleagues extended CCT to account for the ordinal categorical data type (e.g., the Likert-type questionnaires). In this study, we develop an alternative approach to CCT modeling for the ordinal categorical data type. Specifically, we incorporate a response-confidence embedded threshold theory into the CCT framework for assessing the consensus answers to items, item difficulty, informant knowledge, and sensory and response biases. We systematically evaluate the fit by simulation using the hierarchical Bayesian modeling approach, focusing on the issues of parameter recovery and posterior predictive check.
-這個一定要山</p>
+<div id="cultural-consensus-theory-cct" class="section level2">
+<h2>Cultural consensus theory (CCT)</h2>
+<ul>
+<li>A cognitively-driven information-pooling approach to assess informants’ consensus <span class="citation">(Batchelder et al., <a href="#ref-Batchelder2018" role="doc-biblioref">2018</a>)</span>.</li>
+<li>The “culturally correct” answers are unknown a priori.</li>
+<li>Originally aims at analyzing data consisting of binary responses <span class="citation">(Batchelder &amp; Romney, <a href="#ref-Batchelder1988" role="doc-biblioref">1988</a>; Romney et al., <a href="#ref-Romney1986" role="doc-biblioref">1986</a>)</span>.</li>
+</ul>
+</div>
+<div id="threshold-theory" class="section level2">
+<h2>Threshold theory</h2>
+<ul>
+<li>Distinguish between sensory-based thresholds and decision-based response biases <span class="citation">(Krantz, <a href="#ref-Krantz1969" role="doc-biblioref">1969</a>; Luce, <a href="#ref-Luce1963" role="doc-biblioref">1963</a>)</span>.</li>
+</ul>
+</div>
 <div id="objectives" class="section level2">
 <h2>Objectives</h2>
 <ol style="list-style-type: decimal">
-<li>Pick a template layout.</li>
-<li>Write/ create your poster content distraction free.</li>
-<li>Let posterdown do its thing!</li>
+<li>Construct a new model embedded threshold theory into the CCT framework to deal with ordinal categorical responses with different confident levels.</li>
+<li>Estimate items’ and informants’ parameters by using the hierarchical Bayesian inference.</li>
+<li>Check the single (consensus) truth assumption.</li>
 </ol>
 </div>
 </div>
-<div id="the-axiom-of-glm-待改" class="section level1">
-<h1>The Axiom of GLM (待改)</h1>
-
-<div class="definition">
-<p><span id="def:SCT" class="definition"><strong>Axiom 1  (Single Cultural Truth)  </strong></span>整組題項對於所有的受試者，都只有唯一的一組共識答案</p>
-<span class="math display">\[\begin{equation}
-\mathbf{T} = (T_1,\dots\,T_M)^{\top} \in \{0,1\}^M.
-\end{equation}\]</span>
+<div id="general-condorcet-luce-krantz-gclk-model" class="section level1">
+<h1>General Condorcet Luce Krantz (GCLK) Model</h1>
+<p>Consider <span class="math inline">\(X_{ik} = j\)</span> is denoted that the <span class="math inline">\(i\)</span>th informant answers the <span class="math inline">\(j\)</span>th confident response on the <span class="math inline">\(k\)</span>th item.</p>
+<p><img src="figures/tree.png" width="99%" style="display: block; margin: auto;" /></p>
+<p>where <span class="math inline">\(p_{ik}\)</span>, the probability of knowing answer, is a function of item’s difficulty <span class="math inline">\(Q_k\)</span> and informant’s competence <span class="math inline">\(E_i\)</span>. <span class="math inline">\(b_i\)</span> is a sensory bias and <span class="math inline">\(\boldsymbol{g}_i \; \&amp; \; \boldsymbol{d}_i\)</span> are response criteria respectively at different latent states <span class="math inline">\(S_{ik}\)</span>.</p>
 </div>
-
-<p>To reference a citation you can add your <code>.bib</code> file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the <code>.bib</code> file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd <code>[@R-pagedown]</code> <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-pagedown"><strong>???</strong></span>)</span>.</p>
-<p>To get a better understanding of how to include features like these please refer to the {posterdown} <a href="https://github.com/posterdown/wiki">wiki</a>.</p>
-<p><img src="tree.png" /></p>
-</div>
-<div id="hierarchical-bayesian-model" class="section level1">
-<h1>Hierarchical Bayesian Model</h1>
-<p><strong>Likelihood</strong>
-<span class="math display">\[\begin{align*}
-X_{ik} \sim Categorical(\mathbf{p_{X_{ik}}})
-\end{align*}\]</span></p>
-<p><strong>Prior</strong>
-<span class="math display">\[\begin{align*}
-\mathbf{p_{X_{ik}}} &amp;= p_{S_{ik}}\mathbf{d_{i}}+(1-p_{S_{ik}})\mathbf{g_{i}}\\
-p_{S_{ik}} &amp;= (p_{ik}+(1-p_{ik})b_i)^{T_k}\times((1-p_{ik})b_i)^{1-T_k} \\
-p_{ik} &amp;= \frac{E_i(1-Q_k)}{E_i(1-Q_k)+(1-E_i)Q_k} \\
-T_k &amp;\sim Bernoulli(p_T) \\
-E_i &amp;\sim Beta(\mu_E\tau_E, (1-\mu_E)\tau_E) \\
-Q_k &amp;\sim Beta(\mu_Q\tau_Q, (1-\mu_Q)\tau_Q) \\
-b_i &amp;\sim Beta(\mu_b\tau_b, (1-\mu_b)\tau_b) \\
-\mathbf{d_{i}} &amp;\sim Dirichlet(\boldsymbol{\alpha_d}) \\
-\mathbf{g_{i}} &amp;\sim Dirichlet(\boldsymbol{\alpha_g})
-\end{align*}\]</span></p>
-<p><strong>Hyperprior</strong>
-<span class="math display">\[\begin{align*}
-p_T &amp;\sim Uniform(0, 1) \\
-\mu_E &amp;\sim Beta(\alpha_{\mu_E}, \alpha_{\mu_E}), \quad \alpha_{\mu_E} = 1 \\
-\tau_E &amp;\sim Gamma(\mu_{\tau_E}^2/\tau_{\tau_E}^2, \mu_{\tau_E}/\tau_{\tau_E}^2), \quad \mu_{\tau_E} = 10, \quad \sigma_{\tau_E} = 10 \\
-\mu_Q &amp;\sim Beta(\alpha_{\mu_Q}, \alpha_{\mu_Q}), \quad \alpha_{\mu_Q} = 1 \\
-\tau_Q &amp;\sim Gamma(\mu_{\tau_Q}^2/\tau_{\tau_Q}^2, \mu_{\tau_Q}/\tau_{\tau_Q}^2), \quad \mu_{\tau_Q} = 10, \quad \sigma_{\tau_Q} = 10 \\
-\mu_b &amp;= 0.5 \\
-\tau_b &amp;\sim Gamma(\mu_{\tau_b}^2/\tau_{\tau_b}^2, \mu_{\tau_b}/\tau_{\tau_b}^2), \quad \mu_{\tau_b} = 30, \quad \sigma_{\tau_b} = 10 \\
-\boldsymbol{\alpha_d} &amp;= (0,1,\dots,1)^{\top} \\
-\boldsymbol{\alpha_g} &amp;= (1,\dots,1,0)^{\top} \\
-\end{align*}\]</span></p>
-<p>where <span class="math inline">\(i = 1, \dots, N\)</span>, <span class="math inline">\(k = 1, \dots, M\)</span>, <span class="math inline">\(j = 1, ..., J\)</span>, and the <span class="math inline">\(J\times 1\)</span> column vector (e.g. <span class="math inline">\(\mathbf{ p_{X_{ik}}}, \mathbf{d_i}, \mathbf{g_i}, \boldsymbol{\alpha_d}, \boldsymbol{\alpha_g}, \mathbf{1}\)</span>) are denoted by bold symbol.</p>
-<p><strong><em>Now on to the results!</em></strong></p>
-<p><br></p>
+<div id="simulation-procedure" class="section level1">
+<h1>Simulation Procedure</h1>
+<p><img src="figures/recovery.png" width="99%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="results" class="section level1">
 <h1>Results</h1>
-<p>Here you may have some figures to show off, bellow I have made a scatterplot with the infamous Iris dataset and I can even reference to the figure automatically like this, <code>Figure \@ref(fig:irisfigure)</code>, Figure <a href="#fig:irisfigure">1</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:irisfigure"></span>
-<img src="CCT_files/figure-html/irisfigure-1.png" alt="Here is a caption for the figure. This can be added by using the &quot;fig.cap&quot; option in the r code chunk options, see this [link](https://yihui.name/knitr/options/#plots) from the legend himself, [Yihui Xie](https://twitter.com/xieyihui)." width="80%" />
-<p class="caption">
-圖 1: Here is a caption for the figure. This can be added by using the “fig.cap” option in the r code chunk options, see this <a href="https://yihui.name/knitr/options/#plots">link</a> from the legend himself, <a href="https://twitter.com/xieyihui">Yihui Xie</a>.
-</p>
+<p><img src="figures/GCLK_QBpost2.png" width="99%" style="display: block; margin: auto;" /><img src="figures/GCLK_DGpost2.png" width="99%" style="display: block; margin: auto;" /><img src="figures/GCLK_postScreePlot2.png" width="99%" style="display: block; margin: auto;" /></p>
 </div>
-<p>Maybe you want to show off some of that fancy code you spent so much time on to make that figure, well you can do that too! Just use the <code>echo=TRUE</code> option in the r code chunk options, Figure <a href="#fig:myprettycode">2</a>!</p>
-<div class="figure" style="text-align: center"><span id="fig:myprettycode"></span>
-<img src="CCT_files/figure-html/myprettycode-1.png" alt="Boxplots, so hot right now!" width="80%" />
-<p class="caption">
-圖 2: Boxplots, so hot right now!
-</p>
-</div>
-<p>How about a neat table of data? See, Table <a href="#tab:iristable">1</a>:</p>
-<table>
-<caption>
-<span id="tab:iristable">表 1: </span>A table made with the <strong>knitr::kable</strong> function.
-</caption>
-<thead>
-<tr>
-<th style="text-align:center;">
-Sepal <br> Length
-</th>
-<th style="text-align:center;">
-Sepal <br> Width
-</th>
-<th style="text-align:center;">
-Petal <br> Length
-</th>
-<th style="text-align:center;">
-Petal <br> Width
-</th>
-<th style="text-align:center;">
-Species
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-5.1
-</td>
-<td style="text-align:center;">
-3.5
-</td>
-<td style="text-align:center;">
-1.4
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.9
-</td>
-<td style="text-align:center;">
-3.0
-</td>
-<td style="text-align:center;">
-1.4
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.7
-</td>
-<td style="text-align:center;">
-3.2
-</td>
-<td style="text-align:center;">
-1.3
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.6
-</td>
-<td style="text-align:center;">
-3.1
-</td>
-<td style="text-align:center;">
-1.5
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-5.0
-</td>
-<td style="text-align:center;">
-3.6
-</td>
-<td style="text-align:center;">
-1.4
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-5.4
-</td>
-<td style="text-align:center;">
-3.9
-</td>
-<td style="text-align:center;">
-1.7
-</td>
-<td style="text-align:center;">
-0.4
-</td>
-<td style="text-align:center;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.6
-</td>
-<td style="text-align:center;">
-3.4
-</td>
-<td style="text-align:center;">
-1.4
-</td>
-<td style="text-align:center;">
-0.3
-</td>
-<td style="text-align:center;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-5.0
-</td>
-<td style="text-align:center;">
-3.4
-</td>
-<td style="text-align:center;">
-1.5
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-setosa
-</td>
-</tr>
-</tbody>
-</table>
+<div id="discussion" class="section level1">
+<h1>Discussion</h1>
+<ul>
+<li>The GCLK model is developed for applying informant-by-item ordinal response data where items’ consensus truth is unknown a priori.</li>
+<li>The simulation study showed that the hierarchical Bayesian approach can get a strong recovery for the true parameters in our model and provide an method for checking single consensus answers in this data.</li>
+<li>The consensus answers estimated by GCLK model are more close to true value than simply calculate average over everyone responses for each item.</li>
+<li>Apply our proposed model to real data (e.g. Likert-type questionnaire format) for the future study.</li>
+</ul>
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
 <div id="refs" class="references">
+<div id="ref-Batchelder2018">
+<p>Batchelder, W. H., Anders, R., &amp; Oravecz, Z. (2018). Cultural consensus theory. In E.-J. Wagenmakers (Ed.), <em>Stevens’ handbook of experimental psychology and cognitive neuroscience</em> (4th ed., Vol. 5, pp. 201–264). Wiley.</p>
+</div>
 <div id="ref-Batchelder1988">
-<p>Batchelder, W. H., &amp; Romney, A. K. (1988). Test theory without an answer key. <em>Psychometrika</em>, <em>53</em>(1), 71–92. <a href="https://doi.org/10.1007/bf02294195">https://doi.org/10.1007/bf02294195</a></p>
+<p>Batchelder, W. H., &amp; Romney, A. K. (1988). Test theory without an answer key. <em>Psychometrika</em>, <em>53</em>(1), 71–92.</p>
+</div>
+<div id="ref-Krantz1969">
+<p>Krantz, D. H. (1969). Threshold theories of signal detection. <em>Psychological Review</em>, <em>76</em>(3), 308–324.</p>
+</div>
+<div id="ref-Luce1963">
+<p>Luce, R. D. (1963). A threshold theory for simple detection experiments. <em>Psychological Review</em>, <em>70</em>(1), 61–79.</p>
+</div>
+<div id="ref-Romney1986">
+<p>Romney, A. K., Weller, S. C., &amp; Batchelder, W. H. (1986). Culture as consensus: A theory of culture and informant accuracy. <em>American Anthropologist</em>, <em>88</em>(2), 313–338.</p>
 </div>
 </div>
 </div>
 
 </div>
 <div class="main">
-<p>Make <strong>better posters</strong> with RMarkdown + <strong>posterdown</strong>.<br><br> <img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png" class="main_pic" /></p>
-<img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/qr-code-black.png" class="main-img-left" />
-<img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png" class="main-img-right" />
+<p><strong>Test theory without an answer key</strong><br><br> <img src="figures/GCLK_Tpost.png" class="main_pic-left" /><img src="figures/GCLK_Epost.png" class="main_pic-right" /><span class="main_pic-text">Our model can estimate the correct answers much more accurately by weighting on the informants’ responses.</span></p>
+
+<img src="figures/QRcode.png" class="main-img-right" />
 </div>
 </div>
 

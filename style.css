@@ -1,26 +1,28 @@
 body {
-  font-family: "Segoe UI", "Microsoft JhengHei";
+  font-family: "Segoe UI";
   font-size: 12px;
 }
 
-#title{
-  font-size: 150%;
-}
-
-h1 {
-  font-size: 120%;
+h1:not(#title) {
+  font-size: 125%;
   /*color: #001E44;*/
   font-weight: bold;
+  margin-top: 0.5em !important;
+  margin-bottom: 0.5em !important;
 }
 
 h2 {
-  font-size: 125%;
+  font-size: 100%;
   /*color: #065A82;*/
   font-weight: bold;
+  text-align: left !important;
+  margin-block-start: 0.25em !important;
+  margin-block-end: 0.25em !important;
 }
 
+
 h3 {
-  font-size: 120%;
+  font-size: 105%;
   /*color: #1C7293;*/
   font-weight: bold;
 }
@@ -54,12 +56,14 @@ blockquote {
 }
 
 p {
-  text-indent: 0.5in;
+  /*text-indent: 0.5in;*/
+  margin-block-start: 0.25em;
+  margin-block-end: 0.25em;
 }
 
-.indent{
+/*.indent{
   text-indent: 0.5in;
-}
+}*/
 
 .MathJax {
   font-size: 12px;
@@ -79,6 +83,56 @@ span.theorem, span.lemma, span.corollary, span.proposition, span.conjecture, spa
   font-style: normal;
 }
 
-div.references p{
-  text-indent: 0em;
+
+.emphasize {
+  font-size: 115%;
+  color: #065A82;
+  font-weight: bold;
+}
+
+.main_pic-left {
+  width: 48%;
+}
+
+.main_pic-right {
+  width: 48%;
+  float: right;
+}
+
+.main_pic-text {
+  font-size: 100pt;
+}
+
+.main-img-right {
+  width: 18% !important;
+  right: 0.5in !important;
+  bottom: 0.5in !important;
+}
+
+#author {
+  display: none;
+}
+
+.main p {
+  padding-top: 15% !important;
+}
+
+.affil_logo {
+  float: right;
+  width: 14.4%;
+}
+
+ul, ol{
+  margin-block-end: 0em !important;
+  margin-block-start: 0em !important;
+}
+
+.level2 {
+  padding-left: 0mm !important;
+  padding-right: 0mm !important;
+}
+
+.references {
+  text-indent: -0.5in;
+  margin-left: 0.5in;
 }

@@ -1,0 +1,49 @@
+---
+title: "Hierarchical Bayesian Model"
+author: "心理所碩二 R08227116 林子堯"
+date: "2020/11/18"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Hierarchical Bayesian Model of GCLK
+
+**Likelihood**
+$$\begin{align*}
+X_{ik} \sim Categorical(\mathbf{p_{X_{ik}}})
+\end{align*}$$
+
+**Prior**
+$$\begin{align*}
+\mathbf{p_{X_{ik}}} &= p_{S_{ik}}\mathbf{d_{i}}+(1-p_{S_{ik}})\mathbf{g_{i}}\\
+p_{S_{ik}} &= (p_{ik}+(1-p_{ik})b_i)^{T_k}\times((1-p_{ik})b_i)^{1-T_k} \\
+p_{ik} &= \frac{E_i(1-Q_k)}{E_i(1-Q_k)+(1-E_i)Q_k} \\
+T_k &\sim Bernoulli(p_T) \\
+E_i &\sim Beta(\mu_E\tau_E, (1-\mu_E)\tau_E) \\
+Q_k &\sim Beta(\mu_Q\tau_Q, (1-\mu_Q)\tau_Q) \\
+b_i &\sim Beta(\mu_b\tau_b, (1-\mu_b)\tau_b) \\
+\mathbf{d_{i}} &\sim Dirichlet(\boldsymbol{\alpha_d}) \\
+\mathbf{g_{i}} &\sim Dirichlet(\boldsymbol{\alpha_g})
+\end{align*}$$
+
+**Hyperprior**
+$$\begin{align*}
+p_T &\sim Uniform(0, 1) \\
+\mu_E &\sim Beta(\alpha_{\mu_E}, \alpha_{\mu_E}), \quad \alpha_{\mu_E} = 1 \\
+\tau_E &\sim Gamma(\mu_{\tau_E}^2/\tau_{\tau_E}^2, \mu_{\tau_E}/\tau_{\tau_E}^2), \quad \mu_{\tau_E} = 10, \quad \sigma_{\tau_E} = 10 \\
+\mu_Q &\sim Beta(\alpha_{\mu_Q}, \alpha_{\mu_Q}), \quad \alpha_{\mu_Q} = 1 \\
+\tau_Q &\sim Gamma(\mu_{\tau_Q}^2/\tau_{\tau_Q}^2, \mu_{\tau_Q}/\tau_{\tau_Q}^2), \quad \mu_{\tau_Q} = 10, \quad \sigma_{\tau_Q} = 10 \\
+\mu_b &= 0.5 \\
+\tau_b &\sim Gamma(\mu_{\tau_b}^2/\tau_{\tau_b}^2, \mu_{\tau_b}/\tau_{\tau_b}^2), \quad \mu_{\tau_b} = 30, \quad \sigma_{\tau_b} = 10 \\
+\boldsymbol{\alpha_d} &= (0,1,\dots,1)^{\top} \\
+\boldsymbol{\alpha_g} &= (1,\dots,1,0)^{\top} \\
+\end{align*}$$
+
+where $i = 1, \dots, N$, $k = 1, \dots, M$, $j = 1, ..., J$, and the $J\times 1$ column vector (e.g. $\mathbf{ p_{X_{ik}}}, \mathbf{d_i}, \mathbf{g_i}, \boldsymbol{\alpha_d}, \boldsymbol{\alpha_g}, \mathbf{1}$) are denoted by bold symbol.
+
+**Constraint**
+
+
