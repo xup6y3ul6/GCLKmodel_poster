@@ -177,7 +177,7 @@ color: #0b4545;
 margin: 0;
 text-align: left;
 line-height: 65%;
-font-size: 1.17em;
+font-size: 30pt;
 }
 #affiliation {
 padding-top: 1em;
@@ -322,7 +322,7 @@ span > #tab:mytable {
 
 <h5 id="author_extra" class="author_extra">
 Tzu-Yao Lin<sup>1</sup>
- Yung-Fong Hsu<img src="figures/NTU.png" class="affil_logo" /><sup>1</sup>
+ Yung-Fong Hsu<img src="figures/NTU_logo.png" class="affil_logo" /><sup>1</sup>
 </h5>
 
 <p id="affiliation" class="affiliation">
@@ -349,33 +349,34 @@ Tzu-Yao Lin<sup>1</sup>
 <div id="objectives" class="section level2">
 <h2>Objectives</h2>
 <ol style="list-style-type: decimal">
-<li>Construct a new model embedded threshold theory into the CCT framework to deal with ordinal categorical responses with different confident levels.</li>
-<li>Estimate items’ and informants’ parameters by using the hierarchical Bayesian inference.</li>
+<li>Incorperate threshold theory into the CCT framework for ordinal categorical responses.</li>
+<li>Estimate items’ and informants’ parameters by using hierarchical Bayesian modeling.</li>
 <li>Check the single (consensus) truth assumption.</li>
 </ol>
 </div>
 </div>
 <div id="general-condorcet-luce-krantz-gclk-model" class="section level1">
-<h1>General Condorcet Luce Krantz (GCLK) Model</h1>
-<p>Consider <span class="math inline">\(X_{ik} = j\)</span> is denoted that the <span class="math inline">\(i\)</span>th informant answers the <span class="math inline">\(j\)</span>th confident response on the <span class="math inline">\(k\)</span>th item.</p>
-<p><img src="figures/tree.png" width="99%" style="display: block; margin: auto;" /></p>
-<p>where <span class="math inline">\(p_{ik}\)</span>, the probability of knowing answer, is a function of item’s difficulty <span class="math inline">\(Q_k\)</span> and informant’s competence <span class="math inline">\(E_i\)</span>. <span class="math inline">\(b_i\)</span> is a sensory bias and <span class="math inline">\(\boldsymbol{g}_i \; \&amp; \; \boldsymbol{d}_i\)</span> are response criteria respectively at different latent states <span class="math inline">\(S_{ik}\)</span>.</p>
+<h1>General-Condorcet-Luce-Krantz (GCLK) Model</h1>
+<p><span class="math inline">\(X_{ik} = j\)</span>: the <span class="math inline">\(i\)</span>th informant answers the <span class="math inline">\(j\)</span>th confident response on the <span class="math inline">\(k\)</span>th item. (<span class="math inline">\(i \in \{1,\dots,N\}, j \in \{1,\dots,J\}, k \in \{1,\dots,M\}\)</span>)</p>
+<p><img src="figures/tree.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>where <span class="math inline">\(p_{ik}\)</span>, the probability of knowing the answer, is a function of item’s difficulty <span class="math inline">\(Q_k\)</span> and informant’s competence <span class="math inline">\(E_i\)</span>; <span class="math inline">\(b_i\)</span> is a sensory bias; <span class="math inline">\(\boldsymbol{g}_i \; \&amp; \; \boldsymbol{d}_i\)</span> are response criteria (resp.) at different latent states <span class="math inline">\(S_{ik}\)</span>.</p>
 </div>
 <div id="simulation-procedure" class="section level1">
 <h1>Simulation Procedure</h1>
-<p><img src="figures/recovery.png" width="99%" style="display: block; margin: auto;" /></p>
+<p><img src="figures/recovery.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><br /></p>
 </div>
 <div id="results" class="section level1">
 <h1>Results</h1>
-<p><img src="figures/GCLK_QBpost2.png" width="99%" style="display: block; margin: auto;" /><img src="figures/GCLK_DGpost2.png" width="99%" style="display: block; margin: auto;" /><img src="figures/GCLK_postScreePlot2.png" width="99%" style="display: block; margin: auto;" /></p>
+<p><img src="figures/GCLK_QBpost2.png" width="100%" style="display: block; margin: auto;" /><img src="figures/GCLK_DGpost2.png" width="100%" style="display: block; margin: auto;" /><img src="figures/GCLK_postScreePlot2.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
 <ul>
-<li>The GCLK model is developed for applying informant-by-item ordinal response data where items’ consensus truth is unknown a priori.</li>
-<li>The simulation study showed that the hierarchical Bayesian approach can get a strong recovery for the true parameters in our model and provide an method for checking single consensus answers in this data.</li>
-<li>The consensus answers estimated by GCLK model are more close to true value than simply calculate average over everyone responses for each item.</li>
-<li>Apply our proposed model to real data (e.g. Likert-type questionnaire format) for the future study.</li>
+<li>The GCLK model is developed for analyzing informant-by-item ordinal response data where items’ consensus truth is unknown a priori.</li>
+<li>Our simulation results show that the hierarchical Bayesian approach can get a strong recovery for the true parameters in the GCLK model.</li>
+<li>The consensus answers estimated by the GCLK model are more close to the true values than simply calculating the average over individual responses for each item.</li>
+<li>Follow-up study: Apply the GCLK model to real data (e.g. Likert-type questionnaire).</li>
 </ul>
 </div>
 <div id="references" class="section level1 unnumbered">

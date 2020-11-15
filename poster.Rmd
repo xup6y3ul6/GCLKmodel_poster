@@ -1,9 +1,9 @@
 ---
 title: "Incorporating threshold theory into the cultural consensus theory for ordinal categorical data: A simulation study"
 author:
-  - name: Tzu-Yao Lin
+  - name: Tzu-Yao Lin 
     affil: 1
-  - name: Yung-Fong Hsu<img src="figures/NTU.png" class="affil_logo" />
+  - name: Yung-Fong Hsu<img src="figures/NTU_logo.png" class="affil_logo" />
     affil: 1
 affiliation:
   - num: 1
@@ -26,6 +26,7 @@ poster_height: "82cm"
 poster_width: "115cm"
 main_textsize: "142pt"
 title_textsize: "60pt"
+author_textsize: "30pt"
 authorextra_textsize: "30pt"
 affiliation_textsize: "25pt"
 body_textsize: "30pt"
@@ -64,29 +65,32 @@ dev.off()
 
 ## Objectives
 
-1. Construct a new model embedded threshold theory into the CCT framework to deal with ordinal categorical responses with different confident levels.
-2. Estimate items' and informants' parameters by using the hierarchical Bayesian inference.
+1. Incorperate threshold theory into the CCT framework for ordinal categorical responses.
+2. Estimate items' and informants' parameters by using hierarchical Bayesian modeling.
 3. Check the single (consensus) truth assumption.
 
-# General Condorcet Luce Krantz (GCLK) Model
+# General-Condorcet-Luce-Krantz (GCLK) Model
 
-Consider $X_{ik} = j$ is denoted that the $i$th informant answers the $j$th confident response on the $k$th item. 
+$X_{ik} = j$: the $i$th informant answers the $j$th confident response on the $k$th item. ($i \in \{1,\dots,N\}, j \in \{1,\dots,J\}, k \in \{1,\dots,M\}$)
 
-```{r out.width="99%"}
+```{r out.width="100%"}
 knitr::include_graphics("figures/tree.png")
 ```
 
-where $p_{ik}$, the probability of knowing answer, is a function of item's difficulty $Q_k$ and informant's competence $E_i$. $b_i$ is a sensory bias and $\boldsymbol{g}_i \; \& \; \boldsymbol{d}_i$ are response criteria respectively at different latent states $S_{ik}$.
+where $p_{ik}$, the probability of knowing the answer, is a function of item's difficulty $Q_k$ and informant's competence $E_i$; $b_i$ is a sensory bias;  $\boldsymbol{g}_i \; \& \; \boldsymbol{d}_i$ are response criteria (resp.) at different latent states $S_{ik}$.
 
 # Simulation Procedure
 
-```{r out.width="99%"}
+```{r out.width="100%"}
 knitr::include_graphics("figures/recovery.png")
 ```
 
+<br />
+
+
 # Results
 
-```{r out.width="99%"}
+```{r out.width="100%"}
 knitr::include_graphics("figures/GCLK_QBpost2.png")
 knitr::include_graphics("figures/GCLK_DGpost2.png")
 knitr::include_graphics("figures/GCLK_postScreePlot2.png")
@@ -94,9 +98,9 @@ knitr::include_graphics("figures/GCLK_postScreePlot2.png")
 
 # Discussion
 
-- The GCLK model is developed for applying informant-by-item ordinal response data where items' consensus truth is unknown a priori.
-- The simulation study showed that the hierarchical Bayesian approach can get a strong recovery for the true parameters in our model and provide an method for checking single consensus answers in this data.
-- The consensus answers estimated by GCLK model are more close to true value than simply calculate average over everyone responses for each item.
-- Apply our proposed model to real data (e.g. Likert-type questionnaire format) for the future study.
+- The GCLK model is developed for analyzing informant-by-item ordinal response data where items' consensus truth is unknown a priori.
+- Our simulation results show that the hierarchical Bayesian approach can get a strong recovery for the true parameters in the GCLK model.
+- The consensus answers estimated by the GCLK model are more close to the true values than simply calculating the average over individual responses for each item.
+- Follow-up study: Apply the GCLK model to real data (e.g. Likert-type questionnaire).
 
 # References

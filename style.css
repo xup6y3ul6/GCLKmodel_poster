@@ -119,7 +119,8 @@ span.theorem, span.lemma, span.corollary, span.proposition, span.conjecture, spa
 
 .affil_logo {
   float: right;
-  width: 14.4%;
+  vertical-align: text-bottom;
+  width: 24.1%;
 }
 
 ul, ol{
@@ -135,4 +136,8 @@ ul, ol{
 .references {
   text-indent: -0.5in;
   margin-left: 0.5in;
+}
+
+hr {
+  border-top: 0px solid #ffffff;
 }
