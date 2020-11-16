@@ -7,6 +7,6 @@
 - GCLK model: <https://xup6y3ul6.github.io/GCLKmodel_poster/GCLK_HBM.html>
 - Poster：<https://xup6y3ul6.github.io/GCLKmodel_poster/poster.pdf>
 
-![](figures/thumbnail.png){width=50%}
+![](figures/thumbnail.png)
 
 
