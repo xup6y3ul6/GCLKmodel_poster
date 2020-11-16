@@ -9,7 +9,7 @@ affiliation:
   - num: 1
     address: Department of Psychology, National Taiwan University
 main_findings:
-  - "**Test theory without an answer key**"
+  - "An extension of **test theory without an answer key**"
   - "![](figures/GCLK_Tpost.png){.main_pic-left}![](figures/GCLK_Epost.png){.main_pic-right}<span class='main_pic-text'>Our model can estimate the correct answers much more accurately by weighting on the informants' responses.</span>"
 logoright_name: '![](figures/QRcode.png){.main-img-right}'
 output: 
@@ -77,7 +77,9 @@ $X_{ik} = j$: the $i$th informant answers the $j$th confident response on the $k
 knitr::include_graphics("figures/tree.png")
 ```
 
-where $p_{ik}$, the probability of knowing the answer, is a function of item's difficulty $Q_k$ and informant's competence $E_i$; $b_i$ is a sensory bias;  $\boldsymbol{g}_i \; \& \; \boldsymbol{d}_i$ are response criteria (resp.) at different latent states $S_{ik}$.
+- $p_{ik}$, the probability of knowing the answer, is a function of item's difficulty $Q_k$ and informant's competence $E_i$; <br />
+- $b_i$ is a sensory bias; <br />
+- $\boldsymbol{g}_i \; \& \; \boldsymbol{d}_i$ are response criteria (resp.) at latent state $S_{ik}$.
 
 # Simulation Procedure
 
@@ -98,7 +100,7 @@ knitr::include_graphics("figures/GCLK_postScreePlot2.png")
 
 # Discussion
 
-- The GCLK model is developed for analyzing informant-by-item ordinal response data where items' consensus truth is unknown a priori.
+- The GCLK model was developed to account for informant-by-item ordinal response data where items' consensus truth is unknown a priori.
 - Our simulation results show that the hierarchical Bayesian approach can get a strong recovery for the true parameters in the GCLK model.
 - The consensus answers estimated by the GCLK model are more close to the true values than simply calculating the average over individual responses for each item.
 - Follow-up study: Apply the GCLK model to real data (e.g. Likert-type questionnaire).

@@ -359,7 +359,11 @@ Tzu-Yao Lin<sup>1</sup>
 <h1>General-Condorcet-Luce-Krantz (GCLK) Model</h1>
 <p><span class="math inline">\(X_{ik} = j\)</span>: the <span class="math inline">\(i\)</span>th informant answers the <span class="math inline">\(j\)</span>th confident response on the <span class="math inline">\(k\)</span>th item. (<span class="math inline">\(i \in \{1,\dots,N\}, j \in \{1,\dots,J\}, k \in \{1,\dots,M\}\)</span>)</p>
 <p><img src="figures/tree.png" width="100%" style="display: block; margin: auto;" /></p>
-<p>where <span class="math inline">\(p_{ik}\)</span>, the probability of knowing the answer, is a function of item’s difficulty <span class="math inline">\(Q_k\)</span> and informant’s competence <span class="math inline">\(E_i\)</span>; <span class="math inline">\(b_i\)</span> is a sensory bias; <span class="math inline">\(\boldsymbol{g}_i \; \&amp; \; \boldsymbol{d}_i\)</span> are response criteria (resp.) at different latent states <span class="math inline">\(S_{ik}\)</span>.</p>
+<ul>
+<li><span class="math inline">\(p_{ik}\)</span>, the probability of knowing the answer, is a function of item’s difficulty <span class="math inline">\(Q_k\)</span> and informant’s competence <span class="math inline">\(E_i\)</span>; <br /></li>
+<li><span class="math inline">\(b_i\)</span> is a sensory bias; <br /></li>
+<li><span class="math inline">\(\boldsymbol{g}_i \; \&amp; \; \boldsymbol{d}_i\)</span> are response criteria (resp.) at latent state <span class="math inline">\(S_{ik}\)</span>.</li>
+</ul>
 </div>
 <div id="simulation-procedure" class="section level1">
 <h1>Simulation Procedure</h1>
@@ -373,7 +377,7 @@ Tzu-Yao Lin<sup>1</sup>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
 <ul>
-<li>The GCLK model is developed for analyzing informant-by-item ordinal response data where items’ consensus truth is unknown a priori.</li>
+<li>The GCLK model was developed to account for informant-by-item ordinal response data where items’ consensus truth is unknown a priori.</li>
 <li>Our simulation results show that the hierarchical Bayesian approach can get a strong recovery for the true parameters in the GCLK model.</li>
 <li>The consensus answers estimated by the GCLK model are more close to the true values than simply calculating the average over individual responses for each item.</li>
 <li>Follow-up study: Apply the GCLK model to real data (e.g. Likert-type questionnaire).</li>
@@ -402,7 +406,7 @@ Tzu-Yao Lin<sup>1</sup>
 
 </div>
 <div class="main">
-<p><strong>Test theory without an answer key</strong><br><br> <img src="figures/GCLK_Tpost.png" class="main_pic-left" /><img src="figures/GCLK_Epost.png" class="main_pic-right" /><span class="main_pic-text">Our model can estimate the correct answers much more accurately by weighting on the informants’ responses.</span></p>
+<p>An extension of <strong>test theory without an answer key</strong><br><br> <img src="figures/GCLK_Tpost.png" class="main_pic-left" /><img src="figures/GCLK_Epost.png" class="main_pic-right" /><span class="main_pic-text">Our model can estimate the correct answers much more accurately by weighting on the informants’ responses.</span></p>
 
 <img src="figures/QRcode.png" class="main-img-right" />
 </div>
