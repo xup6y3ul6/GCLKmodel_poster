@@ -1,22 +1,138 @@
 ---
-title: "General Condorcet Luce Krantz Model"
+title: "General-Condorcet-Luce-Krantz Model"
 author: "心理所碩二 R08227116 林子堯"
 date: "2020/11/18"
-output: html_document
+output: 
+  bookdown::html_document2:
+    number_sections: false
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Specification of the GCLK model
+
+```{definition, name="唯一共識答案 Single Cultural Truth", label="SCT", echo=TRUE}
+整組題項對於所有的受試者，都只有唯一的一組共識答案 
+
+$$
+\begin{equation} (\#eq:SCT)
+  \mathbf{T} = (T_1,\dots\,T_M)^{\top} \in \{0,1\}^M.
+\end{equation}
+$$
+```
+<br>
+
+
+```{definition, name="條件獨立 Conditional Independence", label="CI", echo=TRUE}
+每位受試者對於每道題目都會有個潛在狀態 (latent state) $S_{ik}$，覺得答案可能是 $0$ 或 $1$ 的狀態。其中，受試者的潛在狀態矩陣 $\mathbf{S}=(S_{ik})_{N \times M}$ 會滿足條件獨立
+
+$$
+\begin{equation} (\#eq:CIofS)
+  Pr(\mathbf{S}=(s_{ik})_{(N \times M)}|\mathbf{T},\mathbf{H},\mathbf{F}) 
+  = \prod_{i=1}^{N}\prod_{k=1}^M Pr(S_{ik}=s_{ik}|T_k,H_i,F_i),
+\end{equation}
+$$
+
+對所有 $(s_{ik})$ 的可能的潛在狀態。而實際可觀測的到的受試者回答矩陣 $\mathbf{X}=(X_{ik})_{N \times M}$ 也滿足條件獨立
+
+$$
+\begin{equation} (\#eq:CIofX)
+  Pr(\mathbf{X}=(x_{ik})_{N \times M}|\mathbf{S},\mathbf{D},\mathbf{G}) 
+  = \prod_{i=1}^{N}\prod_{k=1}^M Pr(X_{ik}=x_{ik}|S_{ik},D_i,G_i),
+\end{equation}
+$$
+  
+對所有受試者回答矩陣 $(x_{ik})$ 的觀察值。 
+```
+<br>
+
+
+```{definition, name="邊際機率 Marginal Response Probabilities", label="MRP", echo=TRUE}
+公式 \@ref(eq:CIofS) 中的邊際機率為
+
+$$
+\begin{equation} (\#eq:MRP)
+  Pr(S_{ik}=s_{ik}|T_k) = 
+    \begin{cases}
+      H_i &\text{ if } s_{ik}=1 \text{ and } T_k=1 \\ 
+      F_i &\text{ if } s_{ik}=0 \text{ and } T_k=1 \\
+      (1-H_i) &\text{ if } s_{ik}=1 \text{ and } T_k=0 \\ 
+      (1-F_i) &\text{ if } s_{ik}=0 \text{ and } T_k=0,
+    \end{cases}
+\end{equation}
+$$
+```
+<br>
+
+
+```{definition, name="雙高閾值 Double High Threshold", label="DHT", echo=TRUE}
+在公理 \@ref(def:MRP) 中，所有受試者的命中率 (Hit rate, $H_i$) 以及假警報率 (False alarm rate, $F_i$) 可分別從新參數化為
+
+$$
+\begin{equation} (\#eq:DHT)
+  H_i=p_{ik}+(1-p_{ik})b_i, \quad F_i=(1-p_{ik})b_i, \quad \forall i,
+\end{equation}
+$$
+  
+其中 $p_{ik}$ 表示該受試者在接受題項後有 $p_{ik}$ 的機率會進入到知曉該題答案的狀態  ，其中 $p_{ik}$ 由題項難度 $Q_k$ 與受試者的能力 $E_i$ 所組成 (見公理 \@ref(def:ID))。另一方面受試者對該題有 $1-p_{ik}$ 的機率則會進入到不知道該題答案的狀態，而進而猜測可能得答案是什麼 (見公理 \@ref(def:SB))。
+```
+<br>
+
+
+```{definition, name="狀態偏誤 Sensory bias", label="SB", echo=TRUE}
+每位受試者都有自己的感知閾值 (sensory bias) $\boldsymbol{B} = (b_i)_{N \times 1} \in [0, 1]^{N}$。當接受題項的內容後，受試者會有機率進入到覺得該題項答案是「1」 (或是「0」) 的狀態 $S_{ik}$，該機率為
+
+$$
+\begin{equation} (\#eq:SB)
+  \Pr(S_{ik} = s_{ik} | Y_{ik}, b_i) =
+    \begin{cases}
+      \Pr(Y_{ik} > b_i) \, \text{ if } \, s_{ik} = 1 \\
+      \Pr(Y_{ik} \leq b_i) \, \text{ if } \, s_{ik} = 0
+    \end{cases}
+\end{equation}
+$$
+```
+<br>
+
+
+```{definition, name="題項難度 Item Difficulty", label="ID", echo=TRUE}
+假若每道題項難度是不相同的，那麼受試者對於該道題項會與共識答案相同的狀態的機率 $Pr(S_{ik}=t_k|T_k=t_k) = D_{ik}, \, t_k \in {0,1}$ 可參數化為受試者能力 $\mathbf{E}=(E_1,\dots,E_N)^{\top}$ 與題目難度 $\mathbf{Q}=(Q_1,\dots,Q_M)^{\top}$ 的組合
+
+$$
+\begin{equation} (\#eq:ID)
+  p_{ik} = \frac{E_i(1-Q_k)}{E_i(1-Q_k)+(1-E_i)Q_k}, 
+\end{equation}
+$$
+
+其中，$E_k, Q_i \in [0,1], \, \forall k,i$
+```
+<br>
+
+
+```{definition, name="反應準則 Response Criterion", label="RC", echo=TRUE}
+在題項有 $J \geq 2$ 個回答信心選項類別時，受試者在兩種狀態 ($S_{ik}=1 \text{ 或 } 0$) 下，分別對於 $J$ 種信心程度選項有各自的回答準則 (response criteron)，$\boldsymbol{D}=(d_{ij})_{N \times J}, \; d_{ij} \in [0,1] \, \&  \, \sum_{j=1}^{J}d_{ij}=1$ 和 $\boldsymbol{G}=(g_{ij})_{N \times J} \; g_{ij} \in [0,1] \,  \&  \, \sum_{j=1}^{J}g_{ij}=1$，且該機率與題項的內容是無關的。因此，此受試者在某題項回答第 $j$ 個信心程度選項時的機率 (公式 \@ref(eq:CIofX)) 為
+
+$$
+\begin{equation} (\#eq:RC)
+  Pr(X_{ik}=j | \mathbf{S}, \mathbf{D}, \mathbf{G}) = Pr(S_{ik}=1)d_{ij} + Pr(S_{ik}=0)g_{ij}
+\end{equation}
+$$
+
+其中 $j = 1,\dots,J$。
+```
+<br>
+
+
 # Hierarchical Bayesian Model
 
-**Likelihood**
+### Likelihood
 $$\begin{align*}
 X_{ik} \sim Categorical(\mathbf{p_{X_{ik}}})
 \end{align*}$$
 
-**Prior**
+### Prior
 $$\begin{align*}
 \mathbf{p_{X_{ik}}} &= p_{S_{ik}}\mathbf{d_{i}}+(1-p_{S_{ik}})\mathbf{g_{i}}\\
 p_{S_{ik}} &= (p_{ik}+(1-p_{ik})b_i)^{T_k}\times((1-p_{ik})b_i)^{1-T_k} \\
@@ -29,7 +145,7 @@ b_i &\sim Beta(\mu_b\tau_b, (1-\mu_b)\tau_b) \\
 \mathbf{g_{i}} &\sim Dirichlet(\boldsymbol{\alpha_g})
 \end{align*}$$
 
-**Hyperprior**
+### Hyperprior
 $$\begin{align*}
 p_T &\sim Uniform(0, 1) \\
 \mu_E &\sim Beta(\alpha_{\mu_E}, \alpha_{\mu_E}), \quad \alpha_{\mu_E} = 1 \\
@@ -44,14 +160,14 @@ p_T &\sim Uniform(0, 1) \\
 
 where $i = 1, \dots, N$, $k = 1, \dots, M$, $j = 1, ..., J$, and the $J \times 1$ column vector (e.g. $\mathbf{ p_{X_{ik}}}, \mathbf{d_i}, \mathbf{g_i}, \boldsymbol{\alpha_d}, \boldsymbol{\alpha_g}, \mathbf{1}$) are denoted by bold symbol.
 
-**Constraint**
+### Constraint
 
 1. $g_j, d_j \geq 0$ and $\sum_{j=1}^J g_j = \sum_{j=1}^J d_j = 1$
 2. $\frac{d_1}{g_1} \leq \dots \leq \frac{d_J}{g_J}$
 3. $d_1 = g_J = 0$
 4. $Q_{med} = Median\{Q_1, \dots, Q_M\} = 0.5$
 
-Any point estimate $\eta in \{Q_1, \dots, Q_M, E_1, \dots, E_N \}$ is center around $Q_{med}$ by:
+Any point estimate $\eta \in \{Q_1, \dots, Q_M, E_1, \dots, E_N \}$ is center around $Q_{med}$ by:
 
 $$
 \eta^* =\frac{\eta(1 + \frac{0.5 - Q_{med}}{Q_{med} - 0.5Q_{med}})}{1 + \eta(\frac{0.5 - Q_{med}}{Q_{med} - 0.5Q_{med}})}
