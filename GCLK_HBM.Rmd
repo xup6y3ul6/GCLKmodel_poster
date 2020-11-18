@@ -11,6 +11,25 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Simulated data $N = 25, M = 50, J = 5$
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(gt)
+sim_data <- readRDS("data/GLM_simulate_N25M50J5.rds")
+X <- sim_data$X 
+N <- nrow(X)
+M <- ncol(X)
+J <- max(X)
+colnames(X) <- sprintf("Item%d(%d)", 1:M, sim_data$T)
+X %>% as.tibble() %>% 
+  add_column(subject = paste0("Subj", 1:N)) %>% 
+  gt(rowname_col = "subject") %>% 
+  tab_header(title = sprintf("Simulated Data (N = %i, M = %i, J = %i)", N, M, J),
+             subtitle = sprintf("Response confidence: 1(the least confident) ~ %i(the most confident)", J))
+```
+
+
 # Specification of the GCLK model
 
 ```{definition, name="唯一共識答案 Single Cultural Truth", label="SCT", echo=TRUE}
